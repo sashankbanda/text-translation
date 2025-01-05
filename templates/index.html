@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Translation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Text Translation Tool</h1>
+        <form method="POST">
+            <label for="user_text">Enter your text:</label>
+            <textarea id="user_text" name="user_text" rows="5" placeholder="Type your text here..."></textarea>
+            
+            <label for="target_language">Enter the target language (e.g., 'French', 'German', 'Spanish'):</label>
+            <input type="text" id="target_language" name="target_language" placeholder="e.g., French" required>
+            
+            <button type="submit">Translate</button>
+        </form>
+        <p class="result">
+            <span id="translation-text">{{ result.replace("Translated Text: ", "") }}</span>
+        </p>
+        
+        <!-- Buttons for Speech -->
+        <button type="button" id="speakInput">Speak Input</button>
+        <button type="button" id="speakOutput">Speak Output</button>
+        <button type="button" id="startListening">Listen to Input</button>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
